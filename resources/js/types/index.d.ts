@@ -14,8 +14,27 @@ export interface Post {
   created_at: Date;
 }
 export interface PostUser {
-  user: User;
-  post: Post;
+  userId: string;
+  name: string;
+  email; string;
+  profilePic: string;
+  postId: string;
+  title: string;
+  content:  string;
+  createdAt: Date;
+}
+
+export interface LinkPage {
+  active: boolean;
+  label: string;
+  url: string;
+}
+
+export interface Paginate {
+  data: PostUser[];
+  firstPageUrl: string;
+  nextPageUrl: string;
+  links: Link[];
 }
 
 export declare function route(name:string, params?: any);

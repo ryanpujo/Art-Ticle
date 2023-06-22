@@ -25,14 +25,13 @@ class UserAccountController extends Controller
     public function show(User $user): Response
     {
         return inertia('UserAccount/Show', [
-            "user" => $user,
-            "posts" => $user->posts()->orderByDesc('created_at')->get()->all(),
+            'page' => User::selfPost($user->id)->paginate(5),
         ]);
     }
 
     public function following(User $user) : Response {
         return inertia('UserAccount/Following', [
-            'users' => $user->followings()->get()->all(),
+            'page' => $user->followings()->paginate(10),
         ]);
     }
 }

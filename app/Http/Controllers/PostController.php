@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         return inertia("Post/Index", [
-            "userPosts" => User::all()->find(Auth::id())->followingPosts(),
+            "page" => User::followingPost(Auth::id())->paginate(10),
         ]);
     }
 
