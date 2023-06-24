@@ -1,15 +1,31 @@
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:vue/vue3-recommended'],
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'eslint:recommended', 
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
+    project: 'tsconfig.json',
+    tsconfigRootDir : __dirname, 
   },
   env: {
     amd: true,
     browser: true,
     es6: true,
+    node: true,
+    jest: true,
   },
+  plugins: ['@typescript-eslint/eslint-plugin'],
+  ignorePatterns: ['.eslintrc.js'],
   rules: {
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     indent: ['error', 2],
     quotes: ['warn', 'single'],
     semi: ['warn', 'never'],

@@ -19,6 +19,11 @@ class PostController extends Controller
         ]);
     }
 
+    public function getPostUser(int $id) {
+        $posts = User::followingPost($id)->paginate(20);
+        return response()->json($posts);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

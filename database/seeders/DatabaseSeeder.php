@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $users = User::factory()->count(50)->create();
-        Post::factory(500)->create();
+        Post::factory(1000)->create();
         Image::factory(50)->create();
 
         $users->random()->followers()->sync($users);

@@ -34,4 +34,5 @@ class UserAccountController extends Controller
             'page' => $user->followings()->paginate(10),
         ]);
     }
+    
 }

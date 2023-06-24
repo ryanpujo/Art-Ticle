@@ -28,6 +28,7 @@ Route::post('login', [AuthController::class, 'store'])->name("auth.login");
 Route::get('logout', [AuthController::class, 'destroy'])->name("logout");
 Route::get('login', [AuthController::class, "create"])->name("login");
 
+
 Route::get('register', [UserAccountController::class, 'create'])->name("useraccount.create");
 Route::post('register', [UserAccountController::class, 'store'])->name("useraccount.store");
 Route::get('users/{user}',[UserAccountController::class, 'show'])->name("useraccount.show");

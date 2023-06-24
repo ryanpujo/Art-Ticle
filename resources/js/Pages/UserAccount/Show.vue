@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import PostList from '@/components/PostList.vue';
-import { Paginate, Post, PostUser, User } from '@/types';
+import { Paginate, } from '@/types';
 import { computed } from 'vue';
 
 const props = defineProps<{
