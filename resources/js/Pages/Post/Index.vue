@@ -12,23 +12,19 @@
 
 <script setup lang="ts">
 import TextArea from "@/components/TextArea.vue";
-import {Paginate, PostUser, User} from '@/types/';
+import {PostUser, User} from '@/types/';
 import PostList from '@/components/PostList.vue';
 import { usePage } from "@inertiajs/vue3";
 import {useScrollPagination} from '@/composable/useScrollPagination'
 import { ref, computed, onMounted } from "vue";
-const props = defineProps<{
-  page: Paginate
-}>();
 const bottom = ref<HTMLElement>();
 let users = ref<PostUser[]>([])
 const page = usePage();
 const user = computed(() => {
   return page.props.user;
 });
-
 onMounted(() => {
-  useScrollPagination(
+  useScrollPagination<PostUser>(
     bottom,
     `/api/posts/${(user.value as User).id}`,
     (data) => {
@@ -36,5 +32,4 @@ onMounted(() => {
     }
   )
 })
-
 </script>

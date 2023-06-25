@@ -3,9 +3,9 @@ import { MaybeComputedElementRef, MaybeElement, useIntersectionObserver } from "
 import axios from "axios";
 import { ref } from "vue";
 
-type OnLoaded = (data: PostUser[]) => void;
+type OnLoaded<T> = (data: T[]) => void;
 
-export function useScrollPagination(target: MaybeComputedElementRef<MaybeElement>, apiEndpoint: string, onLoaded: OnLoaded) {
+export function useScrollPagination<T>(target: MaybeComputedElementRef<MaybeElement>, apiEndpoint: string, onLoaded: OnLoaded<T>) {
   let nextPage = apiEndpoint;
   const isLoading = ref(false);
 
@@ -26,4 +26,7 @@ export function useScrollPagination(target: MaybeComputedElementRef<MaybeElement
       isLoading.value = false;
     },
   )
+  return {
+    isLoading
+  }
 }
