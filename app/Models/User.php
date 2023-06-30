@@ -48,7 +48,6 @@ class User extends Authenticatable
 
 
     public function scopeFollowingPost(Builder $query, int $id) : Builder {
-        global $select;
         return $query->from('following')->where('follower_id', '=', $id)->join('users', 'users.id', '=', 'following.user_id')
         ->join('posts', 'posts.user_id', '=', 'users.id')
         ->select(['users.id as userId', 'name', 'email', 'profile_picture as profilePic', 'posts.id as postId', 'title', 'content', 'posts.created_at as createdAt'])
@@ -56,7 +55,6 @@ class User extends Authenticatable
     }
 
     public function scopeSelfPost(Builder $query, int $id) : Builder {
-        global $select;
         return $query->from('users')->where('users.id', '=', $id)->join('posts', 'posts.user_id', '=', 'users.id')
         ->select(['users.id as userId', 'name', 'email', 'profile_picture as profilePic', 'posts.id as postId', 'title', 'content', 'posts.created_at as createdAt'])
         ->orderByDesc('posts.created_at');

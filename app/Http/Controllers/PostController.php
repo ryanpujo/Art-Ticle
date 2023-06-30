@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,9 +20,14 @@ class PostController extends Controller
         ]);
     }
 
-    public function getPostUser(int $id) {
+    public function getPostUser(int $id): JsonResponse {
         $posts = User::followingPost($id)->paginate(20);
         return response()->json($posts);
+    }
+
+    public function getPosts(int $id) : JsonResponse {
+        $json = User::selfPost($id)->paginate(5);
+        return response()->json($json);
     }
 
     /**

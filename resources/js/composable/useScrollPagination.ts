@@ -26,7 +26,4 @@ export function useScrollPagination<T>(target: MaybeComputedElementRef<MaybeElem
       isLoading.value = false;
     },
   )
-  return {
-    isLoading
-  }
 }

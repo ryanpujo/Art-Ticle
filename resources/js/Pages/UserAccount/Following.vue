@@ -2,7 +2,7 @@
   <div class="posts-container my-4 mx-auto w-fit md:w-auto lg:mx-4">
 
     <div v-for="(user, index) in page.data" :key="user.id" >
-      <UserCard :user="user" class="mb-2 p-4  md:p-0" />
+      <UserCard :user="user" class="mb-2 px-2 md:p-0" />
     </div>
   </div>
 </template>
