@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-600">
+  <div class="bg-blue-600 fixed w-full top-0">
     <nav class=" border-gray-200 dark:bg-gray-900 md:mx-4">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:p-0 md:py-4">
         <img src="../../../public/images/color_with_background.jpg" class="h-8" />
@@ -18,7 +18,7 @@
               <Link :href="route('post.index')" class="block py-2 pl-3 pr-4 text-white hover:bg-blue-400 rounded md:bg-transparent md:text-white-700 md:p-0 dark:text-white md:dark:text-white-500" aria-current="page">Home</Link>
             </li>
             <li>
-              <Link :href="route('useraccount.show', (user as User).id)" class="block py-2 pl-3 pr-4 rounded hover:bg-blue-400 md:border-0 md:p-0 text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profile</Link>
+              <Link :href="route('useraccount.profile')" class="block py-2 pl-3 pr-4 rounded hover:bg-blue-400 md:border-0 md:p-0 text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profile</Link>
             </li>
             <li>
               <Link :href="route('useraccount.following', (user as User).id)" class="block py-2 pl-3 pr-4 rounded hover:bg-blue-400 md:border-0 md:p-0 text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Following</Link>
@@ -32,7 +32,7 @@
       </div>
     </nav>
   </div>
-  <div class="max-w-7xl md:mx-auto mx-2">
+  <div class="max-w-7xl md:mx-auto mx-2 mt-28">
     <slot></slot>
   </div>
 </template>

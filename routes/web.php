@@ -31,6 +31,7 @@ Route::get('login', [AuthController::class, "create"])->name("login");
 
 Route::get('register', [UserAccountController::class, 'create'])->name("useraccount.create");
 Route::post('register', [UserAccountController::class, 'store'])->name("useraccount.store");
-Route::get('users/{user}',[UserAccountController::class, 'show'])->name("useraccount.show");
-Route::get('users/following/{user}',[UserAccountController::class, 'following'])->name("useraccount.following");
+Route::get('users/{user}',[UserAccountController::class, 'show'])->name("useraccount.show")->middleware('auth');
+Route::get('/users/profile/account',[UserAccountController::class, 'profile'])->name("useraccount.profile")->middleware('auth');
+Route::get('users/following/{user}',[UserAccountController::class, 'following'])->name("useraccount.following")->middleware('auth');
 

@@ -27,7 +27,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profile_picture'
+        'profile_picture',
+        'about_me'
     ];
 
     public function posts() : HasMany {
@@ -58,6 +59,11 @@ class User extends Authenticatable
         return $query->from('users')->where('users.id', '=', $id)->join('posts', 'posts.user_id', '=', 'users.id')
         ->select(['users.id as userId', 'name', 'email', 'profile_picture as profilePic', 'posts.id as postId', 'title', 'content', 'posts.created_at as createdAt'])
         ->orderByDesc('posts.created_at');
+    }
+
+    public function scopeProfile(Builder $query, $id) : Builder {
+        return $query->from('users')->where('id', '=', $id)
+            ->select('name', 'email', 'id', 'profile_picture', 'about_me');
     }
 
     /**

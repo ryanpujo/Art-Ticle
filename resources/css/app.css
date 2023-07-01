@@ -26,6 +26,6 @@
   @apply p-6 rounded-xl border-2 shadow-2xl;
 }
 
-.posts-container {
+.grid-container {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-x-4;
 }

@@ -26,7 +26,16 @@ class UserAccountController extends Controller
     public function show(User $user): Response
     {
         return inertia('UserAccount/Show', [
-            'page' => User::selfPost($user->id)->paginate(5),
+            'profile' => $user,
+            'followings' => User::all()->find(Auth::id())->followings()->get()->all()
+        ]);
+    }
+
+    public function profile(): Response 
+    {
+        return inertia('UserAccount/Show', [
+            'profile' => User::profile(Auth::id())->get()->first(),
+            'followings' => User::all()->find(Auth::id())->followings()->get()->all()
         ]);
     }
 

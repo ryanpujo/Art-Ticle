@@ -3,7 +3,7 @@
     <div class="">
       <TextArea/>
     </div>
-    <div class="posts-container">
+    <div class="grid-container">
       <PostList :user-posts="users" />
     </div>
     <div ref="bottom"></div>

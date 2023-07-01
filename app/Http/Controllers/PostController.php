@@ -26,7 +26,7 @@ class PostController extends Controller
     }
 
     public function getPosts(int $id) : JsonResponse {
-        $json = User::selfPost($id)->paginate(5);
+        $json = User::selfPost($id)->paginate(10);
         return response()->json($json);
     }
 
